@@ -1046,7 +1046,7 @@ export default class View {
         .filter(form => form.elements.length > 0)
         .filter(form => form.getAttribute(this.binding(PHX_AUTO_RECOVER)) !== "ignore")
         .map(form => {
-          let newForm = template.content.querySelector(`form[id="${form.id}"][${phxChange}="${form.getAttribute(phxChange)}"]`)
+          let newForm = template.content.querySelector(`form[id="${form.id}"][${phxChange}="${CSS.escape(form.getAttribute(phxChange))}"]`)
           if(newForm){
             return [form, newForm, this.targetComponentID(newForm)]
           } else {
